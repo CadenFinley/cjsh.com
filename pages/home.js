@@ -1,13 +1,12 @@
-import { socialSection } from "../socialButtons.js";
+import { socialSection } from "../components/socialButtons.js";
 import { tag, a, h1, h2, h3, p } from "../grecha.js";
+import { navSection } from "../components/nav.js";
+import { footerSection } from "../components/footer.js";
 
 export function homePage() {
   return tag("div",
     // top nav
-    tag("nav",
-      a("Home").att$("href", "#"),
-      a("Configurator").att$("href", "#/config")
-    ).att$("class", "navbar"),
+    navSection(),
     // hero section
     tag("section",
       tag("pre", `
@@ -52,11 +51,7 @@ export function homePage() {
       p(a("GitHub Repository")
           .att$("href", "https://github.com/CadenFinley/CJsShell"))
     ).att$("class", "section"),
-    // social connect buttons
-    socialSection(),
     // footer
-    tag("footer",
-      p("© " + new Date().getFullYear() + " CJ's Shell")
-    ).att$("class", "footer")
+    footerSection()
   ).att$("class", "container");
 }

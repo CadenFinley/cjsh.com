@@ -1,5 +1,4 @@
-/* Define theme colors */
-:root {
+:root[data-theme="light"] {
   --color-bg: #fdfdfd;
   --color-text: #333;
   --color-primary: #0070f3;
@@ -8,19 +7,16 @@
   --color-muted: #6b7280;
   --transition-fast: 0.25s ease-in-out;
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-bg: #1a202c;
-    --color-text: #e2e8f0;
-    --color-primary: #90cdf4;
-    --color-secondary: #cbd5e0;
-    --color-accent: #2a2e37;
-    --color-muted: #a0aec0;
-  }
+:root[data-theme="dark"] {
+  --color-bg: #1a202c;
+  --color-text: #e2e8f0;
+  --color-primary: #90cdf4;
+  --color-secondary: #cbd5e0;
+  --color-accent: #2a2e37;
+  --color-muted: #a0aec0;
+  --transition-fast: 0.25s ease-in-out;
 }
 
-/* Apply variables */
 body {
   margin: 0;
   font-family: "Helvetica Neue", sans-serif;
@@ -82,7 +78,6 @@ body {
   transition: background-color var(--transition-fast), color var(--transition-fast);
 }
 
-/* Link styles outside navbar */
 a {
   text-decoration: none;
   color: var(--color-primary);
@@ -97,6 +92,7 @@ a:hover {
   display: flex;
   gap: 1rem;
   justify-content: center;
+  margin-left: auto;
 }
 .social-buttons img {
   width: 40px;
@@ -105,4 +101,39 @@ a:hover {
 }
 .social-buttons a:hover img {
   transform: scale(1.1);
+}
+
+.theme-switch {
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 24px;
+}
+.theme-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.theme-switch span {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: var(--color-accent);
+  transition: background-color var(--transition-fast);
+  border-radius: 24px;
+}
+.theme-switch span:before {
+  content: "";
+  position: absolute;
+  height: 18px; width: 18px;
+  left: 3px; bottom: 3px;
+  background-color: var(--color-bg);
+  transition: transform var(--transition-fast);
+  border-radius: 50%;
+}
+.theme-switch input:checked + span {
+  background-color: var(--color-primary);
+}
+.theme-switch input:checked + span:before {
+  transform: translateX(24px);
 }
