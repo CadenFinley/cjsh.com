@@ -19,6 +19,14 @@ export function tag(name, ...children) {
         this.onclick = callback;
         return this;
     };
+    result.onchange$ = function(callback) {
+        this.onchange = callback;
+        return this;
+    };
+    result.oninput$ = function(callback) {
+        this.oninput = callback;
+        return this;
+    };
     return result;
 }
 
@@ -66,4 +74,4 @@ export const a      = (...children) => tag("a",      ...children);
 export const div    = (...children) => tag("div",    ...children);
 export const span   = (...children) => tag("span",   ...children);
 export const select = (...children) => tag("select", ...children);
-// ha ha funni
+export const textarea = (...children) => tag("textarea", ...children);

@@ -30,6 +30,13 @@ export function navSection() {
       const next = e.target.checked ? "dark" : "light";
       document.documentElement.dataset.theme = next;
       localStorage.setItem("theme", next);
+      const githubIcon = navEl.querySelector("#github-icon");
+      if (githubIcon) {
+        githubIcon.setAttribute(
+          "src",
+          next === "dark" ? "images/github-dark.png" : "images/github-light.png"
+        );
+      }
     });
 
   navEl.appendChild(socialSection());
