@@ -1,3 +1,5 @@
+import { socialSection } from "./socialButtons.js";
+
 const r = router({
   "/": () => 
     tag("div",
@@ -8,7 +10,6 @@ const r = router({
       ).att$("class", "navbar"),
       // hero section
       tag("section",
-        h1("CJ's Shell (cjsh)"),
         tag("pre", `
    ______    _______ __  __
   / ____/   / / ___// / / /
@@ -51,6 +52,8 @@ const r = router({
         p(a("GitHub Repository")
             .att$("href", "https://github.com/CadenFinley/CJsShell"))
       ).att$("class", "section"),
+      // social connect buttons
+      socialSection(),
       // footer
       tag("footer",
         p("© " + new Date().getFullYear() + " CJ's Shell")
