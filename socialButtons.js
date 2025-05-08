@@ -1,3 +1,5 @@
+import { tag, a, img } from "./grecha.js";
+
 export function socialSection() {
   return tag("section",
     h2("Connect"),
